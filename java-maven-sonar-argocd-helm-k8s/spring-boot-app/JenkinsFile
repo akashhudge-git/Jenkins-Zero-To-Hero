@@ -1,8 +1,10 @@
 pipeline{
   agent any
   stages{
-    stage(Checkout){
-      git branch: 'main', credentialsId: 'github', url: 'https://github.com/akashhudge-git/Jenkins-Zero-To-Hero.git'
+    stage("Checkout"){
+      steps{
+          git branch: 'main', credentialsId: 'github', url: 'https://github.com/akashhudge-git/Jenkins-Zero-To-Hero.git'
+      }
     }
   }
 }
