@@ -15,7 +15,7 @@ pipeline {
     stage("Build and Test") {
       steps {
           sh '''
-            cd Jenkins-Zero-To-Hero/java-maven-sonar-argocd-helm-k8s/spring-boot-app
+            cd /var/lib/jenkins/workspace/ultimate-cicd/Jenkins-Zero-To-Hero/java-maven-sonar-argocd-helm-k8s/spring-boot-app
             echo "Cleaning and packaging the application..."
             mvn clean package
 
