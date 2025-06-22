@@ -11,5 +11,17 @@ pipeline {
           git branch: 'main', credentialsId: 'github', url: 'https://github.com/akashhudge-git/Jenkins-Zero-To-Hero.git'
       }
     }
+
+    stage("Build and Test") {
+      steps {
+          sh '''
+            echo "Cleaning and packaging the application..."
+            mvn clean package
+
+            echo "Running tests..."
+            mvn test
+          '''
+      }
+    }
   }
 }
