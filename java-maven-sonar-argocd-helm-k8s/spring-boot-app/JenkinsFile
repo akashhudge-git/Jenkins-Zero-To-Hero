@@ -1,11 +1,13 @@
-pipeline{
-  agent docker{
-    image 'akashhudge123/maven-docker-agent:v1'
-    args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
-   }
-  stages{
-    stage("Checkout"){
-      steps{
+pipeline {
+  agent {
+    docker {
+      image 'akashhudge123/maven-docker-agent:v1'
+      args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
+    }
+  }
+  stages {
+    stage("Checkout") {
+      steps {
           git branch: 'main', credentialsId: 'github', url: 'https://github.com/akashhudge-git/Jenkins-Zero-To-Hero.git'
       }
     }
